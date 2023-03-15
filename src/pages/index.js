@@ -8,6 +8,13 @@ export default function Home() {
   const [input,setInput] = useState("")
 
   const [cep,setCep] = useState({})
+  
+  const handleKeyPress = (e) => {
+    // look for the `Enter` keyCode
+    if (e.keyCode === 13 || e.which === 13) {
+      handleSearch()
+    }
+  }
 
   const handleSearch = async  () => {
     if(input === ''){
@@ -38,8 +45,8 @@ export default function Home() {
         Buscador de CEP
       </h1>
       <div className='flex justify-center pt-4 items-center shadow-lg bg-slate-500 px-8 p-4 rounded-lg mt-8'>
-        <input className='focus:outline-0 bg-transparent placeholder:text-slate-200 placeholder:text-lg placeholder:font-semibold font-semibold text-lg text-slate-200'  type='text' value={input} onChange={(e) => setInput(e.target.value)} placeholder='Digite seu CEP'></input>
-        <button onClick={handleSearch} className='pl-2'>
+        <input onKeyPress={handleKeyPress} className='focus:outline-0 bg-transparent placeholder:text-slate-200 placeholder:text-lg placeholder:font-semibold font-semibold text-lg text-slate-200'  type='text' value={input} onChange={(e) => setInput(e.target.value)} placeholder='Digite seu CEP'></input>
+        <button type='submit' onClick={handleSearch} className='pl-2'>
           <BsSearch className=' hover:scale-125 duration-300' size={20} color='white'/>
         </button>
       </div>
