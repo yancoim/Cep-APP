@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useForm } from 'react-hook-form'
 import { BsSearch } from 'react-icons/bs'
 import { useState } from 'react'
 import { api } from '@/services/api'
