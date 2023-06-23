@@ -17,7 +17,7 @@ export default function Home() {
 
   const handleSearch = async  () => {
     if(input === ''){
-      alert('Digite Algum CEP')
+      alert('Digite um CEP')
       return;
     }
 
